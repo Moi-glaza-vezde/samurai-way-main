@@ -6,10 +6,13 @@ export const MyPosts = () => {
    return (
       <div>
          My posts
-         <div>New posts</div>
+         <div>
+            <textarea></textarea>
+            <button>add post</button>
+         </div>
          <div className={s.posts}>
-            <Post message={'Hi, how are you'} />
-            <Post message={'its my first post'} />
+            <Post message={'Hi, how are you'} likeCount={'3'} />
+            <Post message={'its my first post'} likeCount={'5'} />
          </div>
       </div>
    );

@@ -12,3 +12,7 @@
 a {
 	color: inherit;
 }
+.app-wrapper-content {
+	grid-area: c;
+	background-color: cornflowerblue;
+}
