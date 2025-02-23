@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-
+import {state} from './redux/state';
 
 export type DialogItemType = {
     id: number,
@@ -47,6 +47,6 @@ const posts: PostsType[] = [
     {id: 4, message: 'its my da da', likeCount: 3},
 ]
 ReactDOM.render(
-    <App dialogs={dialogs} messages={messages} posts={posts}/>,
+    <App state={state}/>,
     document.getElementById('root')
 );

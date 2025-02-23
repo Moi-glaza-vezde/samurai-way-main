@@ -8,12 +8,10 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import {Music} from './components/music/Music';
 import {News} from './components/news/News';
 import {Setting} from './components/setting/Setting';
-import {DialogItemType, MessageType, PostsType} from './index';
+import {StateType} from './redux/state';
 
 type AppPropsType = {
-    dialogs: DialogItemType[]
-    messages: MessageType[]
-    posts: PostsType[]
+    state: StateType
 }
 
 
@@ -24,16 +22,8 @@ const App = (props: AppPropsType) => {
                 <Header/>
                 <NavBar/>
                 <div className="app-wrapper-content ">
-                    <Route
-                        path={'/dialogs'}
-                        render={() =>
-                            <Dialogs
-                                dialogs={props.dialogs}
-                                messages={props.messages}
-                            />
-                        }
-                    />
-                    <Route path={'/profile'} render={() => <Profile posts={props.posts}/>}/>
+                    <Route path={'/dialogs'} render={() => <Dialogs state={props.state.dialogsPage}/>}/>
+                    <Route path={'/profile'} render={() => <Profile posts={props.state.profilePage.posts}/>}/>
                     <Route path={'/music'} render={() => <Music/>}/>
                     <Route path={'/news'} render={() => <News/>}/>
                     <Route path={'/setting'} render={() => <Setting/>}/>
